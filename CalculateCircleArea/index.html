@@ -1,0 +1,55 @@
+<!-- @format -->
+
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css" />
+		<title>Circle Area</title>
+	</head>
+	<body>
+		<div
+			class="formWrapper"
+			style="
+				margin-top: 100px;
+				text-align: center;
+				font-size: 1.5rem;
+				font-weight: bold;
+			"
+		>
+			<label> Please fill in the circle radius? </label>
+			<br />
+			<input
+				type="number"
+				id="radius"
+				placeholder="Circle Radius"
+				style="width: 50%; padding: 10px; text-align: center; font-size: 1.2rem"
+			/>
+			<div>
+				<button onclick="buttonClicked()">Get Circle Area</button>
+			</div>
+
+			<div id="finalOutput" style="display: none; margin-top: 20px">Hi</div>
+		</div>
+
+		<script>
+			//a function that has a parameter of circleRadius
+			function circleAreaCalculation(circleRadius) {
+				return circleRadius * circleRadius * Math.PI;
+			}
+
+			//this is an even listener onclick from the html
+			const buttonClicked = () => {
+				//storing the radius in a variable from the input field of id radius
+				var radius = document.getElementById("radius").value;
+				var finalOutputDiv = document.getElementById("finalOutput");
+				finalOutputDiv.textContent =
+					"Area of the Circle: " +
+					radius +
+					"*3.14 = " +
+					circleAreaCalculation(radius).toFixed(2);
+				finalOutputDiv.style.display = "block";
+			};
+
+			var finalOutput = document.getElementById("finalOutput");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+/** @format */
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.formWrapper {
+	text-align: center;
+	margin-top: 100px !important;
+}
+
+button {
+	margin-top: 5px;
+	padding: 5px;
+	background-color: darkblue;
+	color: white;
+	transition: 0.3s;
+	border-radius: 3px;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: beige !important;
+	color: black !important;
+	padding: 10px !important;
+	transition: 0.3s;
+	border: 1px white solid;
+	border-radius: 5px;
+}
