@@ -1,0 +1,25 @@
+<!-- @format -->
+
+<html>
+	<head>
+		<title>Check Temperature</title>
+	</head>
+	<body>
+		<h1 style="text-align: center; margin-top: 100px">Temperature Program</h1>
+	</body>
+
+	<script>
+		//identifying temperature variable
+		var temperature;
+		//ask the user to input the desired temperature
+		temperature = prompt("Please fill in the temperature");
+		// console.log(temperature);
+
+		// it is a condition using the && operator such that the temperature should be between ]60, 80]
+		if (temperature > 60 && temperature <= 80 && temperature) {
+			alert("Watch out, it is going to rain");
+		} else {
+			alert("It is not going to rain");
+		}
+	</script>
+</html>
