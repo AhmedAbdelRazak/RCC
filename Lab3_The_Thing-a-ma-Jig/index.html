@@ -8,6 +8,7 @@
 
 	<script>
 		function clunk(times) {
+			//num is a local variable and couldn't be used anywhere else in the code except w/n the clunk() function
 			var num = times;
 			while (num > 0) {
 				display("clunk");
@@ -15,6 +16,7 @@
 			}
 		}
 		function thingamajig(size) {
+			// facky is a local variable and couldn't be used anywhere else in the code except w/n the same function {thingamajif()}
 			var facky = 1;
 			clunkCounter = 0;
 			if (size == 0) {
@@ -32,11 +34,25 @@
 
 		function display(output) {
 			console.log(output);
+			//this global variable will shadow the original value since it was  used in this function {display()}
 			clunkCounter = clunkCounter + 1;
 		}
 
+		var x = 2;
+		y = 5;
+
+		function trial(argument) {
+			z = argument;
+		}
+
+		trial(9);
+		console.log(x, "this is x");
+		console.log(y, "this is y");
+		console.log(z, "this is z");
+
+		// this is a global variable used in the display function as well as in the thingamajif function
 		var clunkCounter = 0;
-		thingamajig(9);
+		thingamajig(1);
 		console.log(clunkCounter);
 	</script>
 </html>
