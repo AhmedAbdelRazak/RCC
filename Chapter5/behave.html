@@ -1,0 +1,80 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Improving The Drive Method</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			// identifying the object fiat
+			var fiat = {
+				make: "fiat",
+				model: "500",
+				year: "1957",
+				color: "Medium Blue",
+				passengers: 2,
+				convertible: false,
+				mileage: 88000,
+				started: false,
+				fuel: 0,
+
+				// when this function is being called, it will overwrite the object element/Property "Started" to true
+				start: function () {
+					this.started = true;
+				},
+
+				// when this function is being called, it will overwrite the object element/Property "Started" to false
+				stop: function () {
+					this.started = false;
+				},
+
+				//Here is the main function w/n this object
+				drive: function () {
+					//first, I should check if the engine was started or not
+					if (this.started) {
+						//if the engine started, I should make sure that the car has fuel in it or not
+						if (this.fuel > 0) {
+							//If true, this block will be executed such that, I will decreace the fuel by 1 which makes sense.
+							alert(this.make + " " + this.model + " goes zoom zoom!");
+							this.fuel = this.fuel - 1;
+						} else {
+							//Here if the car doesn't have enough fuel
+							alert("Uh oh, out of fuel.");
+							// since no enough fuel then I should switch off the engine or stop the car by calling this.stop()
+							this.stop();
+						}
+					} else {
+						//If the engine here was not started
+						alert("You need to start the engine first.");
+					}
+				},
+				addFuel: function (amount) {
+					this.fuel = this.fuel + amount;
+				},
+			};
+
+			fiat.start();
+			fiat.drive();
+			fiat.addFuel(2);
+			fiat.start();
+			fiat.drive();
+			fiat.drive();
+			fiat.drive();
+			fiat.stop();
+
+			// fiat.drive();
+			// fiat.start();
+			// fiat.drive();
+			// fiat.addFuel(2);
+			// fiat.start();
+			// fiat.drive();
+			// fiat.drive();
+			// fiat.drive();
+			// fiat.stop();
+
+			console.log(fiat);
+		</script>
+	</body>
+</html>
