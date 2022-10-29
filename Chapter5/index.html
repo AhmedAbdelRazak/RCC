@@ -1,0 +1,80 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Object-O-matic</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			function makeCar() {
+				//As stated in the lecture, I just went with one car make "Toyota"
+				var makes = ["Toyota"];
+
+				//Made sure that the models are real as required in the lab 5a ask.
+				var models = [
+					"Avalon",
+					"Belta",
+					"Camry",
+					"Corolla",
+					"Crown",
+					"Prius",
+					"4Runner",
+					"Rav4",
+					"Highlander",
+					"Land Cruiser (J300)",
+				];
+				var years = [
+					2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+					2011, 2012, 2013, 2014, 2015,
+				];
+				var colors = [
+					"Red",
+					"Pink",
+					"Orange",
+					"Yellow",
+					"Purple",
+					"Green",
+					"Blue",
+					"Brown",
+					"Violet",
+					"Black",
+					"Olive",
+					"Tan",
+				];
+				var convertible = [false, true];
+
+				//renamed the variables a more descriptive name
+				var randMakes = Math.floor(Math.random() * makes.length);
+				var randModels = Math.floor(Math.random() * models.length);
+				var randYears = Math.floor(Math.random() * years.length);
+				var randColors = Math.floor(Math.random() * colors.length);
+				var randConvertible = Math.floor(Math.random() * convertible.length);
+
+				// the car object will be filled with random values
+				var car = {
+					make: makes[randMakes],
+					model: models[randModels],
+					year: years[randYears],
+					color: colors[randColors],
+					convertible: convertible[randConvertible],
+				};
+
+				return car;
+			}
+
+			function displayCar(car) {
+				console.log(
+					"Your new car is a " + car.year + " " + car.make + " " + car.model,
+				);
+			}
+
+			// calling the makeCare function and store the return value (Object) to carToSell variable
+			var carToSell = makeCar();
+
+			//Calling the displayCar function to display the output in the console based on the random values that will be rendered from the makeCar function
+			displayCar(carToSell);
+		</script>
+	</body>
+</html>
