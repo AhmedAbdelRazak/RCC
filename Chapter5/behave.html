@@ -55,13 +55,30 @@
 				},
 			};
 
+			//I should expect the fiat.started will be true
 			fiat.start();
+
+			//I should expect the alert window that display there is no fuel will pop up.
 			fiat.drive();
+
+			//I should expect that fial.fuel will be 2
 			fiat.addFuel(2);
+
+			//fiat.started will be true
 			fiat.start();
+
+			//I should expect the alert window that display that I'm driving
+			// the fial.fuel will decrease to be 1
 			fiat.drive();
+
+			//I should expect the alert window that display that I'm driving
+			// the fial.fuel will decrease to be 0
 			fiat.drive();
+
+			//I should expect the alert window that display there is no fuel will pop up.
 			fiat.drive();
+
+			//fiat.started should be false
 			fiat.stop();
 
 			// fiat.drive();
