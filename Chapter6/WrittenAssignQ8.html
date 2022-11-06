@@ -1,0 +1,25 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Get Attributes</title>
+	</head>
+	<body>
+		<div>
+			<img id="imgTag" src="" alt="t-shirt" />
+		</div>
+	</body>
+
+	<script>
+		var scoop = document.getElementById("imgTag");
+		var altText = scoop.getAttribute("alt");
+		if (altText === null) {
+			console.log("Oh, I guess there isn't an alt attribute");
+		} else {
+			console.log("I can't see the image in the console,");
+			console.log(" but I'm told it looks like " + altText);
+		}
+	</script>
+</html>

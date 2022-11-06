@@ -1,0 +1,33 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Set Attributes</title>
+	</head>
+
+	<style>
+		.myImage {
+			width: 25%;
+		}
+	</style>
+	<body>
+		<div>
+			<!--Here, we should notice that the src property is blank so there shouldn't be any images in the web page-->
+			<img id="imgTag" src="" alt="t-shirt" />
+		</div>
+	</body>
+	<script>
+		var scoop = document.getElementById("imgTag");
+		var altText = scoop.getAttribute("alt");
+		//Here, I used the same code for question 8 but I added an actual link to the img tag, so we should expect to find an actual img
+		var insertingImageLink = scoop.setAttribute(
+			"src",
+			"https://res.cloudinary.com/infiniteapps/image/upload/v1644897692/Infinite-Apps/LogoPNG_ycybyx.png",
+		);
+
+		//Here, I added a class name to the img tag so I can make the image a bit smaller
+		var insertingImageLink = scoop.setAttribute("class", "myImage");
+	</script>
+</html>

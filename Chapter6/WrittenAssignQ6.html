@@ -1,0 +1,33 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Movies</title>
+	</head>
+
+	<style>
+		.redtext {
+			color: red;
+		}
+	</style>
+	<body>
+		<h1>Movie Showtimes</h1>
+		<h2 id="movie1">Plan 9 from Outer Space</h2>
+		<p>
+			Playing at 3:00pm, 7:00pm.
+			<span> Speical showing tonight at <em>midnight</em> </span>
+		</p>
+		<h2 id="movie2">Forbidden Planet</h2>
+		<p id="required">Playing at 5:00pm, 9:00pm.</p>
+	</body>
+
+	<script>
+		var requiredParagraph = document.getElementById("required");
+		// We should insert a class name to the required paragraph to style as in page 257 using setAttribute
+		requiredParagraph.setAttribute("class", "redtext");
+
+		// we still can style by only using the id with this line requiredParagraph.style.color="red"
+	</script>
+</html>
