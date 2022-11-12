@@ -1,0 +1,106 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lie Detector Test</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			//Defining function lieDetectorTest
+			function lieDetectorTest() {
+				//initializing a variable to count the number of lies.
+				//for sure, before the program starts, there will not be any lies
+				var lies = 0;
+
+				//initializing an empty object stolenDiamond
+				var stolenDiamond = {};
+
+				//Request # 1
+				//the statement below will be truthy since we only have five falsey values (undefined, null, 0, "", false)
+				// other than those five, everything is truthy
+				if (stolenDiamond) {
+					//I should expect "You stole the diamond" in the console first thing
+					console.log("You stole the diamond");
+
+					//lies should increase from 0 to 1
+					lies++;
+				}
+
+				//defining a car object with one element keysInPocket
+				var car = {
+					keysInPocket: null,
+				};
+
+				//Request # 2
+				//As stated above, car.keysInPocket should return null which is a falsey statement.
+				// since it is false, then the code block in the if statement below won't be executed.
+				if (car.keysInPocket) {
+					console.log("Uh oh, guess you stole the car!");
+					lies++;
+				}
+
+				//Request # 3
+				//car.emptyGasTank will return undefined which is false.
+				//It will return undefined because emptyGasTank is not defined in object car
+				//Therefore, the if statement below won't be executed
+				if (car.emptyGasTank) {
+					console.log("You drove the car after you stole it!");
+					lies++;
+				}
+
+				//defining a variable with an empty array
+				var foundYouAtTheCrimeScene = [];
+
+				//Request # 4
+				//This one if statement will be executed because it is out of our 5 falsey returns
+				if (foundYouAtTheCrimeScene) {
+					//I should expect to find this 2nd in the console "A sure sign of guilt"
+					console.log("A sure sign of guilt");
+					//lies will increase from 1 to 2
+					lies++;
+				}
+
+				//Request # 5
+				//This one will return undefined which is a false statement.
+				//The code block w/n the below if statement won't be executed
+				if (foundYouAtTheCrimeScene[0]) {
+					console.log("Caught with a stolen item!");
+					lies++;
+				}
+
+				//Defining a string with a single space
+				var yourName = " ";
+
+				//Request # 6
+				//This is true, thus, the code block w/n the if statement will be executed
+				if (yourName) {
+					//I should expect the string below in the console (Should be the third)
+					console.log("Guess you lied about your name");
+					//lies will increase by one to be from 2 to 3
+					lies++;
+				}
+
+				// If this function is called, It should return how many lies.
+				// In this program, lies should be 3
+				return lies;
+			}
+
+			//storing the number of lies in a variable numberOfLies
+			var numberOfLies = lieDetectorTest();
+
+			//I should expect in the console the below statement
+			// It should appear the fourth sentence in the console
+			console.log("You told " + numberOfLies + " lies!");
+
+			//Request # 7
+			//The numberOfLies >= 3 is a true statement
+			//Thus, the code block w/n the below if statement will be executed
+			if (numberOfLies >= 3) {
+				// I should expect the below sentence in the console (fifth sentence)
+				console.log("Guilty as charged");
+			}
+		</script>
+	</body>
+</html>
