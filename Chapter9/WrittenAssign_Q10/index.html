@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Chapter 9 - Question 10</title>
+	</head>
+	<body>
+		<script>
+			var tick = true;
+			function ticker() {
+				if (tick) {
+					console.log("Tick");
+					tick = false;
+				} else {
+					console.log("Tock");
+					tick = true;
+				}
+			}
+			setInterval(ticker, 5000);
+		</script>
+	</body>
+</html>
