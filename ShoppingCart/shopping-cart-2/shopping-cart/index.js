@@ -15,6 +15,9 @@ window.onload = function () {
 	totalAmountElement.innerHTML = `<hr />Total Amount: $${total}<hr /> `;
 };
 
+//End of initial total amount
+
+//Minus Btn event handler
 $(".minus-btn").on("click", function (e) {
 	e.preventDefault();
 	var $this = $(this);
@@ -43,6 +46,7 @@ $(".minus-btn").on("click", function (e) {
 
 	totalPriceElement[0].innerHTML = "$" + value * unitPricee;
 
+	//calling the gettingTotalAmount function to update the total amount
 	gettingTotalAmount();
 });
 
@@ -67,6 +71,7 @@ $(".plus-btn").on("click", function (e) {
 
 	totalPriceElement[0].innerHTML = "$" + value * unitPricee;
 
+	//calling the gettingTotalAmount function to update the total amount
 	gettingTotalAmount();
 });
 
@@ -76,6 +81,8 @@ function gettingTotalAmount() {
 	var gettingAllSubtotals = document.getElementsByClassName("total-price");
 
 	var total = 0;
+
+	//Here, I'm trying to get all products with a class name not equal "deleteThisOne"
 	for (var i = 0; i < gettingAllSubtotals.length; i++) {
 		var gettingParentProductDiv =
 			gettingAllSubtotals[i].previousSibling.parentElement.previousSibling
@@ -86,6 +93,8 @@ function gettingTotalAmount() {
 		}
 	}
 
+	//Here I'm checking if the total still 0 after the above for loop is done.
+	//If the total is 0, then the cart is empty.
 	if (total === 0) {
 		var emptyCartElement = document.getElementById("emptycart");
 		var buttonEmptyCart = document.getElementById("myButton");
@@ -104,6 +113,9 @@ $(".like-btn").on("click", function () {
 
 $(".delete-btn").on("click", function () {
 	var $this = $(this);
+
+	//gettingParentProductDiv is simply to render the parent div w/n a product
+	//after knowing getting the parent div, I assigned a class "deleteThisOne" and it is styled as display:none
 	var gettingParentProductDiv =
 		$this[0].previousSibling.parentElement.previousSibling.parentElement;
 
