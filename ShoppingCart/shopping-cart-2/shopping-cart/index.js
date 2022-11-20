@@ -130,4 +130,18 @@ document.getElementById("myButton").onclick = function () {
 
 document.getElementById("myButton2").onclick = function () {
 	window.location.reload();
+
+	// chaining all ships to one variable (ships)
+	var ships = [
+		{ locations: ["10", "20", "30"], hits: ["", "", ""] },
+		{ locations: ["32", "33", "34"], hits: ["", "", ""] },
+		{ locations: ["63", "64", "65"], hits: ["", "", ""] },
+	];
+
+	// instead of:
+	var ship1 = { locations: ["10", "20", "30"], hits: ["", "", ""] };
+	var ship2 = { locations: ["32", "33", "34"], hits: ["", "", ""] };
+	var ship3 = { locations: ["63", "64", "65"], hits: ["", "", ""] };
+
+	console.log(ships);
 };
