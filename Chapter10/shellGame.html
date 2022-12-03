@@ -1,0 +1,37 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Shell Game | Q7</title>
+		<script>
+			//The variables below hold references to the winner and loser functions.
+			//We can assign and reassign these references to other variables just like with any value.
+			var winner = function () {
+				alert("WINNER!");
+			};
+			var loser = function () {
+				alert("LOSER!");
+			};
+			winner();
+			// let's assign to other variables for practice
+			//At any time, we can invoke a reference to a function
+			var a = winner;
+			var b = loser;
+			var c = loser;
+			a();
+			b();
+			// now let's try your luck with a shell game
+			c = a;
+			a = b;
+			b = c;
+			c = a;
+			a = c;
+			a = b;
+			b = c;
+			a();
+		</script>
+	</head>
+	<body></body>
+</html>
