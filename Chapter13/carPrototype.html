@@ -1,0 +1,130 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Add Member Function To Car | Inheritance</title>
+		<script>
+			function Car(params) {
+				this.make = params.make;
+				this.model = params.model;
+				this.year = params.year;
+				this.color = params.color;
+				this.passengers = params.passengers;
+				this.convertible = params.convertible;
+				this.mileage = params.mileage;
+				this.started = false;
+			}
+
+			//1st Ask...
+			//Unlike Lab12, I will add the methods that used to be in the Car constructor as a prototype to the same constructor.
+			//Now, each car object will inherit the below methods!
+			Car.prototype.start = function () {
+				this.started = true;
+			};
+
+			Car.prototype.stop = function () {
+				this.started = false;
+				console.log(this.make + " " + this.model + " Stopped!");
+			};
+
+			Car.prototype.drive = function () {
+				if (this.started) {
+					console.log(this.make + " " + this.model + " goes zoom zoom!");
+				} else {
+					console.log("Start the engine first.");
+				}
+			};
+
+			var cadiParams = {
+				make: "GM",
+				model: "Cadillac",
+				year: 1955,
+				color: "tan",
+				passengers: 5,
+				convertible: false,
+				mileage: 12892,
+			};
+
+			var chevyParams = {
+				make: "Chevy",
+				model: "Bel Air",
+				year: 1957,
+				color: "red",
+				passengers: 2,
+				convertible: false,
+				mileage: 1021,
+			};
+
+			var taxiParams = {
+				make: "Webville Motors",
+				model: "Taxi",
+				year: 1955,
+				color: "yellow",
+				passengers: 4,
+				convertible: false,
+				mileage: 281341,
+			};
+
+			var fiatParams = {
+				make: "Fiat",
+				model: "500",
+				year: 1957,
+				color: "Medium Blue",
+				passengers: 2,
+				convertible: false,
+				mileage: 88000,
+			};
+
+			var testCarParams = {
+				make: "Webville Motors",
+				model: "Test Car",
+				year: 2014,
+				color: "marine",
+				passengers: 2,
+				convertible: true,
+				mileage: 21,
+			};
+
+			//2nd Ask...
+			//Car "type" should be as a prototype and will be inherited in the object
+			var chevy = new Car(chevyParams);
+			//Here is directly the required in ask 2
+			//Car.prototype.coupe="coupe"
+			Car.prototype.chevy = "chevy";
+
+			//Here, I just thought of adding an array that holds all the car types.
+			//The reason why I took this approach is to print it in the console and give you the output.
+			//We can use the push method or spread operator
+			Car.prototype.carTypes = ["chevy"];
+
+			var cadi = new Car(cadiParams);
+			Car.prototype.cadi = "cadi";
+			Car.prototype.carTypes = [...Car.prototype.carTypes, "cadi"];
+
+			var taxi = new Car(taxiParams);
+			Car.prototype.taxi = "taxi";
+			Car.prototype.carTypes = [...Car.prototype.carTypes, "taxi"];
+
+			var fiat = new Car(fiatParams);
+			Car.prototype.fiat = "fiat";
+			Car.prototype.carTypes = [...Car.prototype.carTypes, "fiat"];
+
+			var testCar = new Car(testCarParams);
+			Car.prototype.testCar = "testCar";
+			Car.prototype.carTypes = [...Car.prototype.carTypes, "testCar"];
+
+			var cars = [chevy, cadi, taxi, fiat, testCar];
+
+			for (var i = 0; i < cars.length; i++) {
+				console.log(cars[i].carTypes[i], "Inherited Object");
+				cars[i].start();
+				cars[i].drive();
+				cars[i].drive();
+				cars[i].stop();
+			}
+		</script>
+	</head>
+	<body></body>
+</html>
