@@ -1,0 +1,59 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script>
+			function WriteCookie() {
+				if (document.myform.customer.value == "") {
+					alert("Enter Some Value!");
+					return;
+				}
+				if (document.myform.customer2.value == "") {
+					alert("Enter Some Value2!");
+					return;
+				}
+				var now = new Date();
+				now.setMonth(now.getMonth() + 4);
+				cookievalue = escape(document.myform.customer.value) + ";";
+				cookievalue2 = escape(document.myform.customer2.value) + ";";
+				cookievalue3 = escape(
+					cookievalue2 + " expires=Fri, 16 Dec 2022 00:00:00",
+				);
+				document.cookie = "name= " + cookievalue;
+				document.cookie = "name2= " + cookievalue2;
+				document.cookie = "name3= " + cookievalue3;
+
+				document.cookie = "expires= " + now.toUTCString() + ";";
+				document.write(
+					"Setting Cookies : " +
+						"name=" +
+						cookievalue +
+						"name2=" +
+						cookievalue2 +
+						"name3=" +
+						cookievalue3,
+				);
+			}
+		</script>
+
+		<title>Write Cookies</title>
+	</head>
+
+	<body style="margin: 40px 100px">
+		<form name="myform" action="">
+			First Name: <input type="text" name="customer" /> <br /><br />
+			Last Name:
+			<input type="text" name="customer2" />
+			<br />
+			<br />
+			<input
+				style="margin: 0px 100px"
+				type="button"
+				value="Set Cookie"
+				onclick="WriteCookie()"
+			/>
+		</form>
+	</body>
+</html>
