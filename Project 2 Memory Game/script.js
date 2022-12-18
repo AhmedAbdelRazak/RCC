@@ -15,7 +15,7 @@ const memoryGameModel = {
 //It determines the squares or images count per row
 //It determines the actual images after flipping "Images Array"
 //It insert the html element based on the distribution and shuffling
-const GameInit = () => {
+function GameInit() {
 	const squares = 4;
 
 	const images = [
@@ -63,10 +63,10 @@ const GameInit = () => {
 	// console.log(parser, "DOMParser Method");
 
 	gameBoard.replaceWith(parser.querySelector(".mainBoard"));
-};
+}
 
 //It is being executed from GameInit function
-const randomDistribution = (array, items) => {
+function randomDistribution(array, items) {
 	const randomPicks = [];
 
 	for (let index = 0; index < items; index++) {
@@ -77,11 +77,11 @@ const randomDistribution = (array, items) => {
 	}
 
 	return randomPicks;
-};
+}
 
 //The function below receives an array that contains the photos provided in the assignment
 //Then shuffles them so the photos are not in order
-const shufflingTheGame = (array) => {
+function shufflingTheGame(array) {
 	for (let index = array.length - 1; index > 0; index--) {
 		const randomIndex = Math.floor(Math.random() * (index + 1));
 		const original = array[index];
@@ -91,17 +91,19 @@ const shufflingTheGame = (array) => {
 	}
 
 	return array;
-};
+}
 
 //It is just a function that tells me that the game started so I calculate stats
 //I haven't used it that much because it will make me late to handover my project
 //But in the model structure, it is important to add game started and game ended.
-const GameStarted = () => {
+
+function GameStarted() {
 	memoryGameModel.Started = true;
-};
+}
 
 //Event listener invoked to listen to the click event
-const eventListenerOfFlippingCards = () => {
+
+function eventListenerOfFlippingCards() {
 	document.addEventListener("click", (event) => {
 		//
 		//console.log(event.target, "event.target");
@@ -119,7 +121,7 @@ const eventListenerOfFlippingCards = () => {
 			showCard(eventParent);
 		}
 	});
-};
+}
 
 //The action of flipping the card itself which was maily used in eventListenerOfFlippingCards function
 //Here all the magic happens for the game where we check whether I flipped only 1 card or 2.
@@ -129,7 +131,8 @@ const eventListenerOfFlippingCards = () => {
 //If they don't match then flip them back
 //Before flipping them back, I should check whether the gamer exceeded his trial limit.
 //The gamer trial limit was mainly 4 trials.
-const showCard = (card) => {
+
+function showCard(card) {
 	memoryGameModel.Flipped++;
 	memoryGameModel.totalFlips++;
 
@@ -176,10 +179,10 @@ const showCard = (card) => {
 
 		console.log(memoryGameModel, "memoryGameModel");
 	}
-};
+}
 
 //If the two cards are not the same, flip them back to the blank (question mark) image.
-const hideCards = () => {
+function hideCards() {
 	//Before flipping back the cards, I should check whether the gamer exceeded his trials "4"
 	//4 trials mean that the totalFlips are 8
 	if (memoryGameModel.totalFlips >= 8) {
@@ -199,7 +202,7 @@ const hideCards = () => {
 		window.location.href =
 			"file:///C:/RCC/RCCProjects/Project%202%20Memory%20Game/winner.html";
 	}
-};
+}
 
 window.onload = function () {
 	GameInit();
